@@ -20,6 +20,7 @@ public final class VillagerTradeApi extends JavaPlugin {
   public static void clearTrades(Villager villager) {
     EntityVillager entityVillager = ((CraftVillager)villager).getHandle();
     try {
+      //EntityVillager.class Field private MerchantRecipeList trades;
       Field recipes = entityVillager.getClass().getDeclaredField("trades");
       recipes.setAccessible(true);
       MerchantRecipeList list = new MerchantRecipeList();
@@ -33,6 +34,7 @@ public final class VillagerTradeApi extends JavaPlugin {
   public static void addTrade(Villager villager, VillagerTrade villagerTrade) {
     EntityVillager entityVillager = ((CraftVillager)villager).getHandle();
     try {
+      //EntityVillager.class Field private MerchantRecipeList trades;
       Field recipes = entityVillager.getClass().getDeclaredField("trades");
       recipes.setAccessible(true);
       MerchantRecipeList list = (MerchantRecipeList)recipes.get(entityVillager);
