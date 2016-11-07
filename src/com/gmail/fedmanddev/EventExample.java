@@ -19,7 +19,7 @@ public class EventExample implements Listener {
     public void on(PlayerInteractEntityEvent e) {
 		Entity ent =  e.getRightClicked();
 		if(ent instanceof Villager) {
-			Villager villager = (Villager)  e.getRightClicked();
+			Villager villager = (Villager)  ent;
 			VillagerTradeApi.clearTrades(villager);
 			ItemStack item1 = new ItemStack(Material.GOLD_NUGGET, 10);
 			ItemStack item2 = new ItemStack(Material.APPLE);
