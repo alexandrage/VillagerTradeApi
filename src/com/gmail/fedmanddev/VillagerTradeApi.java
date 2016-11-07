@@ -5,8 +5,12 @@ import net.minecraft.server.v1_10_R1.EntityVillager;
 import net.minecraft.server.v1_10_R1.ItemStack;
 import net.minecraft.server.v1_10_R1.MerchantRecipe;
 import net.minecraft.server.v1_10_R1.MerchantRecipeList;
+import net.minecraft.server.v1_10_R1.World;
+
+import org.bukkit.craftbukkit.v1_10_R1.CraftWorld;
 import org.bukkit.craftbukkit.v1_10_R1.entity.CraftVillager;
 import org.bukkit.craftbukkit.v1_10_R1.inventory.CraftItemStack;
+import org.bukkit.entity.Player;
 import org.bukkit.entity.Villager;
 import org.bukkit.plugin.java.JavaPlugin;
 
@@ -61,5 +65,13 @@ public final class VillagerTradeApi extends JavaPlugin {
   
   public static void addTrade(Villager villager, VillagerTrade villagerTrade) {
 	  addTrade(villager, villagerTrade, 7);
+  }
+  
+  public static Villager createVillager(Player p) {
+	    World world = ((CraftWorld) p.getWorld()).getHandle();
+		EntityVillager entityvillager = new EntityVillager(world);
+		CraftVillager villager = new CraftVillager(null, entityvillager);
+		clearTrades(villager);
+		return villager;
   }
 }
