@@ -1,4 +1,4 @@
-package com.gmail.fedmanddev;
+package com;
 
 import org.bukkit.Material;
 import org.bukkit.entity.Entity;
@@ -23,8 +23,8 @@ public class EventExample implements Listener {
 		if(ent instanceof Villager) {
 			Villager villager = (Villager)ent;
 			VillagerTradeApi.clearTrades(villager);
-			ItemStack item1 = new ItemStack(Material.APPLE);
-			ItemStack reward = new ItemStack(Material.GOLD_NUGGET);
+			ItemStack item1 = new ItemStack(Material.GOLD_NUGGET);
+			ItemStack reward = new ItemStack(Material.APPLE);
 			VillagerTrade trade = new VillagerTrade(item1, reward);
 			VillagerTradeApi.addTrade(villager, trade, Integer.MAX_VALUE);
 		}

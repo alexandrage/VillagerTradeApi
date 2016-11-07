@@ -1,4 +1,4 @@
-package com.gmail.fedmanddev;
+package com;
 
 import java.lang.reflect.Field;
 import net.minecraft.server.v1_10_R1.EntityVillager;

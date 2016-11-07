@@ -1,3 +1,4 @@
 name: VillagerTradeApi
-main: com.gmail.fedmanddev.VillagerTradeApi
+main: com.VillagerTradeApi
 version: 1.10.2
+author: Fedmand

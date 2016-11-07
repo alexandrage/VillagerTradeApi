@@ -1,4 +1,4 @@
-package com.gmail.fedmanddev;
+package com;
 
 import org.bukkit.inventory.ItemStack;
 
