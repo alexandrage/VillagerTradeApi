@@ -39,6 +39,6 @@ public class EventExample implements Listener {
 		ItemStack reward = new ItemStack(Material.GOLD_NUGGET);
 		VillagerTrade trade = new VillagerTrade(item1, reward);
 		VillagerTradeApi.addTrade(villager, trade, Integer.MAX_VALUE);
-		e.getPlayer().openMerchant(villager, true);
+		p.openMerchant(villager, true);
 	}
 }
