@@ -20,7 +20,7 @@ public final class VillagerTradeApi extends JavaPlugin {
   public static void clearTrades(Villager villager) {
     EntityVillager entityVillager = ((CraftVillager)villager).getHandle();
     try {
-      //EntityVillager.class Field private MerchantRecipeList trades;
+      //EntityVillager.class: Field -> private MerchantRecipeList trades;
       Field recipes = entityVillager.getClass().getDeclaredField("trades");
       recipes.setAccessible(true);
       MerchantRecipeList list = new MerchantRecipeList();
@@ -31,10 +31,10 @@ public final class VillagerTradeApi extends JavaPlugin {
     }
   }
   
-  public static void addTrade(Villager villager, VillagerTrade villagerTrade) {
+  public static void addTrade(Villager villager, VillagerTrade villagerTrade, int maxUses) {
     EntityVillager entityVillager = ((CraftVillager)villager).getHandle();
     try {
-      //EntityVillager.class Field private MerchantRecipeList trades;
+      //EntityVillager.class: Field -> private MerchantRecipeList trades;
       Field recipes = entityVillager.getClass().getDeclaredField("trades");
       recipes.setAccessible(true);
       MerchantRecipeList list = (MerchantRecipeList)recipes.get(entityVillager);
@@ -42,16 +42,24 @@ public final class VillagerTradeApi extends JavaPlugin {
         ItemStack item1 = CraftItemStack.asNMSCopy(VillagerTrade.getItem1(villagerTrade));
         ItemStack item2 = CraftItemStack.asNMSCopy(VillagerTrade.getItem2(villagerTrade));
         ItemStack rewardItem = CraftItemStack.asNMSCopy(VillagerTrade.getRewardItem(villagerTrade));
-        list.add(new MerchantRecipe(item1, item2, rewardItem));
+        MerchantRecipe recipe = new MerchantRecipe(item1, item2, rewardItem);
+        recipe.maxUses = maxUses;
+        list.add(recipe);
       } else {
         ItemStack item1 = CraftItemStack.asNMSCopy(VillagerTrade.getItem1(villagerTrade));
         ItemStack rewardItem = CraftItemStack.asNMSCopy(VillagerTrade.getRewardItem(villagerTrade));
-        list.add(new MerchantRecipe(item1, rewardItem));
+        MerchantRecipe recipe = new MerchantRecipe(item1, rewardItem);
+        recipe.maxUses = maxUses;
+        list.add(recipe);
       }
       recipes.set(entityVillager, list);
     }
     catch (Exception exc) {
       exc.printStackTrace();
     }
+  }
+  
+  public static void addTrade(Villager villager, VillagerTrade villagerTrade) {
+	  addTrade(villager, villagerTrade, 7);
   }
 }
