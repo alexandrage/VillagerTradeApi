@@ -18,19 +18,19 @@ public final class VillagerTrade {
 		this.rewardItem = rewardItem;
 	}
 
-	public boolean hasItem2(VillagerTrade villagerTrade) {
-		return villagerTrade.item2 != null;
+	public boolean hasItem2() {
+		return this.item2 != null;
 	}
 
-	public ItemStack getItem1(VillagerTrade villagerTrade) {
-		return villagerTrade.item1;
+	public ItemStack getItem1() {
+		return this.item1;
 	}
 
-	public ItemStack getItem2(VillagerTrade villagerTrade) {
-		return villagerTrade.item2;
+	public ItemStack getItem2() {
+		return this.item2;
 	}
 
-	public ItemStack getRewardItem(VillagerTrade villagerTrade) {
-		return villagerTrade.rewardItem;
+	public ItemStack getRewardItem() {
+		return this.rewardItem;
 	}
 }
