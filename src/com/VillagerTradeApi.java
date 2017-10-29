@@ -42,7 +42,7 @@ public class VillagerTradeApi extends JavaPlugin {
 
 	public void addTrade(Villager villager, org.bukkit.inventory.ItemStack item1,
 			org.bukkit.inventory.ItemStack rewardItem, int maxUses) {
-		addTrade(villager, item1, null, rewardItem, 7);
+		addTrade(villager, item1, null, rewardItem, maxUses);
 	}
 
 	public void addTrade(Villager villager, org.bukkit.inventory.ItemStack stack1,
