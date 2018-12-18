@@ -1,14 +1,14 @@
 package com;
 
 import java.lang.reflect.Field;
-import net.minecraft.server.v1_12_R1.EntityVillager;
-import net.minecraft.server.v1_12_R1.ItemStack;
-import net.minecraft.server.v1_12_R1.MerchantRecipe;
-import net.minecraft.server.v1_12_R1.MerchantRecipeList;
-import net.minecraft.server.v1_12_R1.World;
-import org.bukkit.craftbukkit.v1_12_R1.CraftWorld;
-import org.bukkit.craftbukkit.v1_12_R1.entity.CraftVillager;
-import org.bukkit.craftbukkit.v1_12_R1.inventory.CraftItemStack;
+import net.minecraft.server.v1_13_R2.EntityVillager;
+import net.minecraft.server.v1_13_R2.ItemStack;
+import net.minecraft.server.v1_13_R2.MerchantRecipe;
+import net.minecraft.server.v1_13_R2.MerchantRecipeList;
+import net.minecraft.server.v1_13_R2.World;
+import org.bukkit.craftbukkit.v1_13_R2.CraftWorld;
+import org.bukkit.craftbukkit.v1_13_R2.entity.CraftVillager;
+import org.bukkit.craftbukkit.v1_13_R2.inventory.CraftItemStack;
 import org.bukkit.entity.Player;
 import org.bukkit.entity.Villager;
 import org.bukkit.plugin.java.JavaPlugin;
