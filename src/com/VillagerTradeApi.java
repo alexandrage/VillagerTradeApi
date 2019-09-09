@@ -1,14 +1,16 @@
 package com;
 
 import java.lang.reflect.Field;
-import net.minecraft.server.v1_13_R2.EntityVillager;
-import net.minecraft.server.v1_13_R2.ItemStack;
-import net.minecraft.server.v1_13_R2.MerchantRecipe;
-import net.minecraft.server.v1_13_R2.MerchantRecipeList;
-import net.minecraft.server.v1_13_R2.World;
-import org.bukkit.craftbukkit.v1_13_R2.CraftWorld;
-import org.bukkit.craftbukkit.v1_13_R2.entity.CraftVillager;
-import org.bukkit.craftbukkit.v1_13_R2.inventory.CraftItemStack;
+
+import net.minecraft.server.v1_14_R1.EntityTypes;
+import net.minecraft.server.v1_14_R1.EntityVillager;
+import net.minecraft.server.v1_14_R1.ItemStack;
+import net.minecraft.server.v1_14_R1.MerchantRecipe;
+import net.minecraft.server.v1_14_R1.MerchantRecipeList;
+import net.minecraft.server.v1_14_R1.World;
+import org.bukkit.craftbukkit.v1_14_R1.CraftWorld;
+import org.bukkit.craftbukkit.v1_14_R1.entity.CraftVillager;
+import org.bukkit.craftbukkit.v1_14_R1.inventory.CraftItemStack;
 import org.bukkit.entity.Player;
 import org.bukkit.entity.Villager;
 import org.bukkit.plugin.java.JavaPlugin;
@@ -57,14 +59,12 @@ public class VillagerTradeApi extends JavaPlugin {
 				ItemStack item1 = CraftItemStack.asNMSCopy(villagerTrade.getItem1());
 				ItemStack item2 = CraftItemStack.asNMSCopy(villagerTrade.getItem2());
 				ItemStack rewardItem = CraftItemStack.asNMSCopy(villagerTrade.getRewardItem());
-				MerchantRecipe recipe = new MerchantRecipe(item1, item2, rewardItem);
-				recipe.maxUses = maxUses;
+				MerchantRecipe recipe = new MerchantRecipe(item1, item2, rewardItem, 1, maxUses, 0f);
 				list.add(recipe);
 			} else {
 				ItemStack item1 = CraftItemStack.asNMSCopy(villagerTrade.getItem1());
 				ItemStack rewardItem = CraftItemStack.asNMSCopy(villagerTrade.getRewardItem());
-				MerchantRecipe recipe = new MerchantRecipe(item1, rewardItem);
-				recipe.maxUses = maxUses;
+				MerchantRecipe recipe = new MerchantRecipe(item1, rewardItem, 1, maxUses, 0f);
 				list.add(recipe);
 			}
 			recipes.set(entityVillager, list);
@@ -75,7 +75,7 @@ public class VillagerTradeApi extends JavaPlugin {
 
 	public Villager createVillager(Player p) {
 		World world = ((CraftWorld) p.getWorld()).getHandle();
-		EntityVillager entityvillager = new EntityVillager(world);
+		EntityVillager entityvillager = new EntityVillager(EntityTypes.VILLAGER, world);
 		CraftVillager villager = new CraftVillager(null, entityvillager);
 		clearTrades(villager);
 		return villager;
